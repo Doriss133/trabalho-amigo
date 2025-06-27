@@ -1,0 +1,956 @@
+* {
+  margin: 0; /* remove a margem padrão */
+  padding: 0; /* remove o padding padrão */
+  box-sizing: border-box; /* inclui padding e borda dentro do tamanho total do elemento */
+}
+
+/* Define que html e body ocupam 100% da largura e altura da tela */
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* impede que a página tenha scroll horizontal */
+}
+
+/* Estilo geral do corpo do site */
+body {
+  font-family: 'Roboto Flex', sans-serif; /* fonte principal */
+  color: white; /* cor do texto */
+  background: #050A10; /* cor de fundo escura */
+}
+
+/* -------- SIDEBAR ESQUERDA -------- */
+.sidebar-left {
+  position: fixed; /* fixa no canto da tela */
+  top: 0;
+  left: 0;
+  width: 204px; /* largura fixa */
+  height: 100vh; /* ocupa toda a altura da tela */
+  padding: 20px;
+  border-right: 1px solid #ffffff; /* linha separadora à direita */
+}
+
+.seta-voltar img{
+  z-index: 2;
+  position: fixed;
+  position: absolute; /* posiciona a seta no topo da sidebar */
+  top: 3px;
+  left: 147px;
+  width: 45px; /* largura da seta */
+  height: auto; /* altura automática para manter a proporção */
+  cursor: pointer; /* muda o cursor para indicar que é clicável */
+}
+
+.logo-sidebar {
+  width: 150px; /* largura do logo */
+  height: auto;
+  display: block;
+  margin: 0 auto 10px; /* centraliza horizontalmente */
+}
+
+.sidebar-left h1 {
+  margin-bottom: 5px;
+  margin-top: 0;
+  font-size: 25px;
+  margin-left: 15px;
+}
+
+/* Perfil exibido na sidebar esquerda */
+.perfil-principal {
+  display: flex; /* deixa o conteúdo lado a lado */
+  align-items: center; /* alinha verticalmente */
+  gap: 10px; /* espaço entre os itens */
+  padding: 15px 0;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+/* Foto do perfil */
+.perfil-principal img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* deixa a imagem redonda */
+  object-fit: cover; /* imagem cobre a área sem distorcer */
+}
+
+/* Informações do perfil */
+.perfil-principal .info {
+  flex: 1; /* ocupa o espaço disponível */
+}
+
+.perfil-principal .nome {
+  font-weight: bold;
+  font-size: 16px;
+  color: #eee;
+}
+
+.perfil-principal .arroba {
+  font-size: 15px;
+  color: #656565;
+}
+
+.perfil-principal .mais {
+  font-size: 20px;
+  color: #ffffff;
+  cursor: pointer; /* vira uma "mãozinha" ao passar o mouse */
+}
+
+/* Links de navegação na sidebar esquerda */
+.sidebar-left nav a {
+  display: block;
+  color: #ffffff;
+  text-decoration: none; /* sem sublinhado */
+  margin: 28px 0; /* espaçamento entre links */
+  font-size: 24px;
+}
+
+/* -------- SIDEBAR DIREITA -------- */
+.sidebar-right {
+  position: fixed; /* fixa no canto direito */
+  top: 0;
+  right: 0;
+  width: 204px;
+  height: 100vh;
+  padding: 20px;
+  border-left: 1px solid #ffffff; /* linha separadora à esquerda */
+}
+
+.sidebar-right h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.sidebar-right .item-noticia {
+  margin-top: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #ffffff;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 15px; /* espaçamento extra entre as notícias */
+}
+
+/* Cada item da sidebar direita */
+.sidebar-right .item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ffffff;
+  font-size: 15px;
+  color: #ccc;
+}
+
+.primeiro-item {
+  border-top: 1px solid #ffffff;
+  padding-top: 10px; /* ajuste o espaço se quiser */
+}
+
+
+/* Mesmo estilo para a classe .item (provavelmente para outras listas) */
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  width: 100%;
+  border-bottom: 1px solid #ffffff;
+  font-size: 15px;
+  color: #ccc;
+}
+
+/* Imagem de cada item */
+.item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Info de cada item */
+.item .info {
+  flex: 1;
+}
+
+.item .nome {
+  font-weight: bold;
+  font-size: 14px;
+  color: #eee;
+}
+
+.item .arroba {
+  font-size: 14px;
+  color: #888;
+}
+
+.item .mais {
+  font-size: 18px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+/* Bloco de notícias na sidebar direita */
+.noticias {
+  margin-top: 10px;
+}
+
+.item-noticia {
+  padding: 8px 0;
+  border-bottom: 1px solid #ffffff;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/*FAIXA CINZA EM CIMA DA FOTO DE PERFIL*/
+.faixa-cinza {
+  position: relative;
+  display: flex;
+  top: 0;
+  flex-direction: row;
+  margin-left: 13.4%;
+  width: 73.2%;
+  height: 18%; /* altura da faixa */
+  background-color: #605858; /* cor cinza com transparência */
+}
+
+/*FOTO GRANDONA DE PERFIL DA GIOVANNA*/
+.perfil-foto img{
+  position: absolute; /* posiciona a foto em relação ao pai */
+  z-index: 1; /* garante que a foto fique acima da faixa cinza */
+  top: 8.5%;
+  left: 17.5%;
+  width: 12%; /* largura da foto */
+  height: 24%; /* altura da foto */
+}
+
+/* NOME DE USUÁRIO E ARROBA DA GIOVANNA*/
+.nome-usuario {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  z-index: 2; /* garante que o texto fique acima da foto */
+  top: 20%;
+  left: 30.8%;
+  font-size: 190%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+  letter-spacing: 5.5px;
+}
+
+.ponto {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  z-index: 2; /* garante que o texto fique acima da foto */
+  top: 19%;
+  left: 35%;
+  font-size: 190%; /* tamanho do texto */
+  color: #888; /* cor do texto */
+}
+
+.arroba-usuario {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  z-index: 2; /* garante que o texto fique acima da foto */
+  top: 21%;
+  left: 36.4%;
+  font-size: 120%; /* tamanho do texto */
+  color: #888; /* cor do texto */
+  letter-spacing: 5.5px;
+}
+
+/* BLOCO DE ALIADOS E ENVIAR MENSAGEM IRIS*/
+.aliados {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  z-index: 2; /* garante que o texto fique acima da foto */
+  top: 21%;
+  left: 58.2%;
+  font-size: 100%; /* tamanho do texto */
+  letter-spacing: 2px;
+}
+
+.aliados-bloco {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 20.3%;
+  left: 56.6%;
+  height: 4%;
+  width: 7.5%;
+  border-radius: 6.5px;
+  background-color: #2B3034;
+}
+
+.enviar-mensagem{
+   position: absolute; /* posiciona o texto em relação ao pai */
+  z-index: 2; /* garante que o texto fique acima da foto */
+  top: 21%;
+  left: 69.4%;
+  font-size: 100%; /* tamanho do texto */
+  letter-spacing: 1.5px;
+}
+
+.enviar-mensagem-bloco {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 20.3%;
+  left: 67.7%;
+  height: 4%;
+  width: 15.4%;
+  border-radius: 6.5px;
+  background-color: #2B3034;
+}
+
+/*NÚMERO DE  POSTS, ALIADOS E ESCOLHIDOS*/
+.numero-posts {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 42.5%;
+  left: 25%;
+  font-size: 133%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+}
+
+.posts{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 43%;
+  left: 26.7%;
+  font-size: 98%; /* tamanho do texto */
+  color: #5C5959; /* cor do texto */
+  letter-spacing: 3px;
+}
+
+.numero-aliados {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 42.5%;
+  left: 44.5%;
+  font-size: 125%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+}
+
+.aliados2 {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 43%;
+  left: 47.8%;
+  font-size: 98%; /* tamanho do texto */
+  color: #5C5959; /* cor do texto */
+  letter-spacing: 3px;
+} 
+
+.numero-escolhidos {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 42.5%;
+  left: 65%;
+  font-size: 125%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+}
+
+.escolhidos {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 43%;
+  left: 68%;
+  font-size: 98%; /* tamanho do texto */
+  color: #5C5959; /* cor do texto */
+  letter-spacing: 3px;
+}
+
+/*BIOGRAFIA E DEMAIS INFORMAÇÕES*/
+.profecia {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 56.5%;
+  left: 19.5%;
+  font-size: 160%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+  letter-spacing: 6.5px;
+}
+#texto-profecia {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 62%;
+  left: 19.5%;
+  width: 60%; /* largura do texto */
+  font-size: 100%; /* tamanho do texto */
+  color: #706F6F; /* cor do texto */
+  letter-spacing: 3px;
+}
+
+.portal-mundo {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 70%;
+  left: 19.5%;
+  font-size: 160%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+  letter-spacing: 6.5px;
+}
+#link-portal {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 75%;
+  left: 19.5%;
+  width: 60%; /* largura do texto */
+  font-size: 100%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+  letter-spacing: 3px;
+}
+
+.favorito-afrodite {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 82%;
+  left: 19.5%;
+  font-size: 160%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+  letter-spacing: 6.5px;
+}
+#favorito{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 87.3%;
+  left: 19.5%;
+  width: 60%; /* largura do texto */
+  font-size: 100%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+  letter-spacing: 3px;
+}
+
+.bencao {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 95%;
+  left: 19.5%;
+  font-size: 160%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+  letter-spacing: 6.5px;
+}
+#nome-bencao {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 100%;
+  left: 19.5%;
+  width: 60%; /* largura do texto */
+  font-size: 100%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+  letter-spacing: 3px;
+}
+
+.maldicao {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 108%;
+  left: 19.5%;
+  font-size: 160%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+  letter-spacing: 6.5px;
+}
+#nome-maldicao {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 113.3%;
+  left: 19.5%;
+  width: 60%; /* largura do texto */
+  font-size: 100%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+  letter-spacing: 3px;
+}
+
+.templo-base {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 120.5%;
+  left: 19.5%;
+  font-size: 160%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+  letter-spacing: 6.5px;
+}
+#templo-local{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 126%;
+  left: 19.5%;
+  width: 60%; /* largura do texto */
+  font-size: 100%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+  letter-spacing: 3px;
+}
+
+/*GAMBIARRA PARA COLOCAR OS PONTOS GRANDES*/
+.ponto-branco img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 57.7%;
+  z-index: 2;
+  left: 17.95%;
+  width: 0.65%; /* largura do tridente */
+  height: 1.3%; /* altura automática para manter a proporção */
+}
+.ponto-branco2 img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 71.3%;
+  z-index: 2;
+  left: 17.95%;
+  width: 0.65%; /* largura do tridente */
+  height: 1.3%; /* altura automática para manter a proporção */
+}
+.ponto-branco3 img{
+ position: absolute; /* posiciona o texto em relação ao pai */
+  top: 83.3%;
+  z-index: 2;
+  left: 17.95%;
+  width: 0.65%; /* largura do tridente */
+  height: 1.3%; /* altura automática para manter a proporção */
+}
+.ponto-branco4 img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 96.3%;
+  z-index: 2;
+  left: 17.95%;
+  width: 0.65%; /* largura do tridente */
+  height: 1.3%; /* altura automática para manter a proporção */
+}
+.ponto-branco5 img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 109.3%;
+  z-index: 2;
+  left: 17.95%;
+  width: 0.65%; /* largura do tridente */
+  height: 1.3%; /* altura automática para manter a proporção */
+}
+.ponto-branco6 img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 58.5%;
+  z-index: 2;
+  left: 64%;
+  width: 0.55%; /* largura do tridente */
+  height: 1.1%; /* altura automática para manter a proporção */
+}
+.ponto-branco7 img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 122%;
+  z-index: 2;
+  left: 17.95%;
+  width: 0.65%; /* largura do tridente */
+  height: 1.3%; /* altura automática para manter a proporção */
+}
+
+/*MÚSICA "HELLO?" DA CLAIRO*/
+.musica {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 57.5%;
+  left: 65.5%;
+  font-size: 130%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+  letter-spacing: 4px;
+}
+.imagem-musica img{
+  position: absolute; /* posiciona a imagem em relação ao pai */
+  top: 68%;
+  left: 67%;
+  border-radius: 10%;
+  width: 10%; /* largura da imagem */
+  height: auto; /* altura automática para manter a proporção */
+}
+.nome-musica {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 63%;
+  left: 67%;
+  font-size: 95%; /* tamanho do texto */
+  color: #888; /* cor do texto */
+  letter-spacing: 4px;
+}
+.codigo-spotify img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 90%;
+  left: 67%;
+  border-radius: 9px;
+  height: 4.75%; /* altura da imagem */
+  width: 10%; /* largura da imagem */ 
+  color: #9A9999; /* cor do texto */
+  letter-spacing: 3px;
+}
+.clique-confira {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 95.8%;
+  left: 67.5%;
+  font-size: 80%; /* tamanho do texto */
+  color: #5C5959; /* cor do texto */
+  letter-spacing: 3px;
+} 
+
+/*DESTAQUES*/
+/*destaque giovanna*/
+.destaque-giovanna img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 135%;
+  left: 29%;
+  height: 10%;
+  width: 5%;
+  z-index: 2;
+  border: #ffffff solid 2.5px; /* borda cinza */
+  border-radius: 52px; /* borda arredondada */
+  color: #ffffff; /* cor do texto */
+  letter-spacing: 4px;
+}
+#destaque-gio-texto {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 145.8%;
+  left: 28%;
+  font-size: 95%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+  letter-spacing: 2.5px;
+}
+
+/*destaque quadrupedes*/
+.destaque-quadrupedes img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 135%;
+  left: 45%;
+  height: 10%;
+  width: 5%;
+  z-index: 2;
+  border: #ffffff solid 2.5px; /* borda cinza */
+  border-radius: 52px; /* borda arredondada */
+}
+#destaque-quadrupedes-texto {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 145.8%;
+  left: 44%;
+  font-size: 95%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+  letter-spacing: 2.5px;
+}
+
+/*destaque abilolettes*/
+.destaque-abilolettes img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 135%;
+  left: 63%;
+  height: 10%;
+  width: 5%;
+  z-index: 2;
+  border: #ffffff solid 2.5px; /* borda cinza */
+  border-radius: 52px; /* borda arredondada */
+}
+#destaque-abilolettes-texto {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 145.8%;
+  left: 62.7%;
+  font-size: 95%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+  letter-spacing: 2.5px;
+}
+
+/*COMEÇO DAS POSTAGENS*/
+hr {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 167%;
+  left: 13.5%;
+  width: 73%; /* largura do texto */
+  border: none; /* remove a borda padrão */
+  border-top: 1px solid #ffffff; /* linha branca */
+}
+
+.aba-posts {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 162%;
+  left: 30%;
+  font-size: 150%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+  letter-spacing: 4px;
+}
+
+.aba-respostas {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 162%;
+  left: 44%;
+  font-size: 150%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+  letter-spacing: 4px;
+}
+
+.aba-favoritos {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 162%;
+  left: 62%;
+  font-size: 150%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+  letter-spacing: 4px;
+}
+
+/* posts */
+.perfil-posts img {
+  position: absolute; /* posiciona a imagem em relação ao pai */
+  top: 173%;
+  left: 20%;
+  height: 6.5%; /* altura da imagem */
+  width: 3.25%; /* largura da imagem */
+}
+.usuario-post {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 174%;
+  left: 24%;
+  font-size: 144%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+}
+.usuario-arroba {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 174.6%;
+  left: 26.6%;
+  font-size: 99%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+}
+.percy-texto {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 180%;
+  left: 23.5%;
+  width: 60%; /* largura do texto */
+  font-size: 100%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+  letter-spacing: 2px;
+}
+
+.imagem-percy img {
+  position: absolute; /* posiciona a imagem em relação ao pai */
+  top: 185%;
+  left: 23.5%;
+  width: 23%; /* largura da imagem */
+  height: auto; /* altura automática para manter a proporção */
+  border-radius: 7px;
+}
+.imagem-percy2 img {
+  position: absolute; /* posiciona a imagem em relação ao pai */
+  top: 185%;
+  left: 48%;
+  width: 23%; /* largura da imagem */
+  height: auto; /* altura automática para manter a proporção */
+  border-radius: 7px;
+}
+#linha-separadora {
+  position: absolute; /* posiciona a linha em relação ao pai */
+  top: 239%;
+  left: 13.5%;
+  width: 73%; /* largura da linha */
+  border: none; /* remove a borda padrão */
+  border-top: 1px solid #ffffff; /* linha branca */
+}
+/*curtidas e comentarios do post de percy jackson*/
+.curtidas-jackson img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 233%;
+  left: 26%;
+  width: 1.5%; /* largura da imagem */
+  height: auto; /* altura automática para manter a proporção */
+}
+.comentario-jackson img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 233%;
+  left: 36%;
+  width: 1.5%; /* largura da imagem */
+  height: auto; /* altura automática para manter a proporção */
+}
+#curtidas-jack {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 233.2%;
+  left: 28%;
+  font-size: 100%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+}
+#comentarios-jack {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 233%;
+  left: 38%;
+  font-size: 100%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+}
+.compartilhar-jackson img {
+  position: absolute; /* posiciona a imagem em relação ao pai */
+  top: 233%;
+  left: 46%;
+  width: 1.5%; /* largura da imagem */
+  height: auto; /* altura automática para manter a proporção */
+}
+.salvar-jackson img {
+  position: absolute; /* posiciona a imagem em relação ao pai */
+  top: 233%;
+  left: 56%;
+  width: 1.5%; /* largura da imagem */
+  height: auto; /* altura automática para manter a proporção */
+}
+#compartilhar-jack {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 233.2%;
+  left: 48%;
+  font-size: 100%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+}
+#salvar-jack {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 233%;
+  left: 58%;
+  font-size: 100%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+}
+.tres-pontos-jackson img {
+  position: absolute; /* posiciona a imagem em relação ao pai */
+  top: 233%;
+  left: 67%;
+  width: 1.5%; /* largura da imagem */
+  height: auto; /* altura automática para manter a proporção */
+}
+/*COMEÇO DOS POSTS DA SABRINA CARPENTER*/
+.perfil-posts2 img {
+  position: absolute; /* posiciona a imagem em relação ao pai */
+  top: 245%;
+  left: 21%;
+  height: 6.5%; /* altura da imagem */
+  width: 3.25%; /* largura da imagem */
+}
+.usuario-post2 {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 246%;
+  left: 25%;
+  font-size: 144%; /* tamanho do texto */
+  color: #ffffff; /* cor do texto */
+}
+.usuario-arroba2 {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 246.6%;
+  left: 27.5%;
+  font-size: 99%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+}
+
+.sabrina-brasil img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 252%;
+  left: 26%;
+  width: 20%; /* largura da imagem */
+  height: auto; /* altura automática para manter a proporção */
+  border-radius: 8px;
+}
+.sabrina-brasil2 img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 252%;
+  left: 50%;
+  width: 20%; /* largura da imagem */
+  height: auto; /* altura automática para manter a proporção */
+  border-radius: 8px;
+}
+.curtidas-sabrina img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 309%;
+  left: 26%;
+  height: auto; /* altura do texto */
+  width: 1.6%; /* largura do texto */
+}
+.comentario-sabrina img{
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 309%;
+  left: 36%;
+  height: auto; /* altura do texto */
+  width: 1.6%; /* largura do texto */
+}
+.compartilhar-sabrina img {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 309%;
+  left: 46%;
+  height: auto; /* altura do texto */
+  width: 1.6%; /* largura do texto */
+}
+.salvar-sabrina img {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 309%;
+  left: 56%;
+  height: auto; /* altura do texto */
+  width: 1.6%; /* largura do texto */
+}
+.tres-pontos-sabrina img {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 309%;
+  left: 67%;
+  height: auto; /* altura do texto */
+  width: 1.6%; /* largura do texto */
+}
+#curtidas-bina {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 309.2%;
+  left: 28%;
+  font-size: 100%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+}
+#comentarios-bina {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 309%;
+  left: 38%;
+  font-size: 100%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+}
+#compartilhar-bina {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 309.2%;
+  left: 48%;
+  font-size: 100%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+}
+#salvar-bina {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 309%;
+  left: 58%;
+  font-size: 100%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+}
+#linha-separadora2 {
+  position: absolute; /* posiciona a linha em relação ao pai */
+  top: 326%;
+  left: 13.5%;
+  width: 73%; /* largura da linha */
+  border: none; /* remove a borda padrão */
+  border-top: 1px solid #ffffff; /* linha branca */
+}
+.texto-sabrina {
+  position: absolute; /* posiciona o texto em relação ao pai */
+  top: 317%;
+  left: 25%;
+  font-size: 100%; /* tamanho do texto */
+  color: #9A9999; /* cor do texto */
+}
+.gi-destaque2 img {
+  position: relative; /* posiciona a imagem em relação ao pai */
+  top: 330%;
+  left: 25%;
+  width: 50%; /* largura da imagem */
+  height: auto; /* altura automática para manter a proporção */
+}
+.linha-destaque {
+  position: absolute; /* posiciona a linha em relação ao pai */
+  top: 310%;
+  left: 13.5%;
+  width: 73%; /* largura da linha */
+  border: none; /* remove a borda padrão */
+  border-top: 1px solid #ffffff; /* linha branca */
+}
+.gi-destaque2 {
+  top: 325%;
+  left: 30%;
+  width: 120%; /* largura da imagem */
+  height: auto;
+ margin-left: -8.5%;
+ margin-bottom: 5%;
+}
+.gi-destaque3 img{
+  top: 330%;
+  left: 49%;
+  width: 60%; /* largura da imagem */
+  height: auto;
+  margin-left: 22%;
+}
+.quadrupedes-destaque img {
+  position: relative; /* posiciona a imagem em relação ao pai */
+  top: 330%;
+  left: 25%;
+  width: 50%; /* largura da imagem */
+  height: auto; /* altura automática para manter a proporção */
+}
+.quadrupedes-destaque2 img {
+  top: 330%;
+  left: 49%;
+  width: 50%; /* largura da imagem */
+  height: auto; /* altura automática para manter a proporção */
+  margin-left: 25%;
+  margin-top: 3%;
+}
+.abilolettes-destaque img {
+  top: 330%;
+  left: 25%;
+  width: 50%; /* largura da imagem */
+  height: auto; /* altura automática para manter a proporção */
+  margin-left: 25%;
+}
+.abilolettes-destaque2 img {
+  top: 330%;
+  left: 49%;
+  width: 50%; /* largura da imagem */
+  height: auto; /* altura automática para manter a proporção */
+  margin-left: 25%;
+  margin-top: 3%;
+}
